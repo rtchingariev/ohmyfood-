@@ -1,0 +1,334 @@
+$font_title: 'Shrikhand', cursive;
+$font_txt: 'Roboto', sans-serif;
+
+$color_1: #9356dc;
+$color_2: #ff79da;
+$color_3: #99e2d0;
+
+@mixin logo {
+  font-family: $font_title;
+  font-size: 36px;
+  margin: 20px 0;
+}
+
+// loader
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ddd;
+  transition: opacity 1s, visibility 1s;
+  z-index: 1;
+  &--hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+  &::after {
+    content: '';
+    width: 75px;
+    height: 75px;
+    border: 15px solid #9356dc;
+    border-top-color: #99e2d0;
+    border-radius: 50%;
+    animation: loading 1s ease infinite;
+  }
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/* * {
+  box-sizing: border-box;
+}*/
+
+body,
+html {
+  margin: 0;
+  font-family: $font_txt;
+}
+
+.container {
+  max-width: 1400px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  &__logo h1 {
+    @include logo;
+  }
+  &__search {
+    background: rgb(234, 234, 234, 1);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+    margin: 0;
+  }
+  &__location {
+    margin: 0 0 0 15px;
+  }
+}
+
+/* Header search form - hidden
+.search_input {
+  font-weight: 500;
+  font-size: 18px;
+  color: rgb(53, 53, 53, 1);
+  background: transparent;
+  border: 0px solid #f2f2f2;
+  padding: 15px;
+}
+.search_input::placeholder {
+  color: #000;
+}
+.search_input:focus {
+  outline: none;
+}*/
+
+.header-hero {
+  background: rgb(247, 247, 247, 1);
+  text-align: center;
+  padding: 30px 25px 50px 25px;
+  h2 {
+    font-size: 22px;
+    font-weight: 500;
+  }
+  p {
+    font-size: 18px;
+    opacity: 0.6;
+  }
+  &__btn {
+    background: linear-gradient(to bottom, $color_2, $color_1);
+    transition-duration: 0.3s;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    font-weight: 400;
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 10px 0 0 0;
+    border-radius: 30px;
+    border: none;
+    color: #fff;
+    &:hover {
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+    }
+  }
+}
+
+// How to use
+
+.howto {
+  font-size: 18px;
+  padding: 0 25px 0 37px;
+  margin: 40px 0 0 0;
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: howtoList;
+  }
+  &__item {
+    width: 26%;
+    padding: 24px;
+    margin: 20px 0;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    background: #f6f6f6;
+    display: flex;
+    position: relative;
+    align-items: center;
+    &:before {
+      counter-increment: howtoList 1;
+      content: counter(howtoList) ' ';
+      background: $color_1;
+      font-size: 12px;
+      height: 24px;
+      width: 24px;
+      border-radius: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      position: absolute;
+      left: -12px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* css code for smartphone */
+
+  .howto__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .howto__item {
+      width: 90%;
+    }
+  }
+}
+
+// Restaurants homepage
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  margin: 30px 0 0 0;
+  padding: 25px;
+  background: rgb(247, 247, 247, 1);
+  a {
+    text-decoration: none;
+    color: #000;
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* css code for smartphone */
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    a {
+      width: 90%;
+    }
+  }
+}
+
+.resto {
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 20px;
+  margin: 0 0 30px 0;
+  &__new {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background: $color_3;
+    color: #115d4a;
+    font-weight: 500;
+    display: block;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  &__img {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+  }
+  h3 {
+    padding: 0 20px;
+    margin-bottom: 0;
+  }
+  p {
+    padding: 0 20px 20px 20px;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 300;
+  }
+  &__like {
+    position: absolute;
+    right: 30px;
+    top: 275px;
+    // Restaurants - like icone
+    .like {
+      color: #000;
+      font-size: 26px;
+      font-weight: 400;
+      cursor: pointer;
+    }
+    .like:hover {
+      animation: like 0.3s ease-in-out;
+      opacity: 1;
+      background: linear-gradient(to bottom, $color_2, $color_1);
+      background-clip: text;
+      color: transparent;
+      font-weight: bold;
+    }
+  }
+}
+
+// Restaurants menu pages
+@import '_resto-page.scss';
+
+// Footer
+.footer {
+  background: rgb(53, 53, 53, 1);
+  color: #fff;
+  font-size: 16px;
+  padding: 25px;
+  &__logo {
+    display: inline-block;
+    font-family: $font_title;
+    font-size: 20px;
+    margin: 0 0 10px 0;
+  }
+  .footer__nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .footer__nav ul > li {
+    padding: 5px 0;
+  }
+  a {
+    color: #fff;
+    text-decoration: none;
+    &:hover {
+      color: $color_2;
+    }
+  }
+}
+
+// A reviser ...
+
+.fa-mobile-screen-button,
+.fa-list,
+.fa-store {
+  margin: 0 20px 0 0;
+}
+
+.fa-utensils,
+.fa-handshake-angle {
+  width: 24px;
+}
+
+// resto like
+@keyframes like {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

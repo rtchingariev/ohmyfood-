@@ -58,20 +58,17 @@ $color_3: #99e2d0;
     z-index: 1;
   }
 }
-/* * {
-  box-sizing: border-box;
-}*/
 
 body,
 html {
   margin: 0;
   font-family: $font_txt;
+  background: #fff;
 }
 
 .container {
   max-width: 1400px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  height: auto;
   margin: 0 auto;
   padding: 0;
 }
@@ -95,22 +92,6 @@ html {
     margin: 0 0 0 15px;
   }
 }
-
-/* Header search form - hidden
-.search_input {
-  font-weight: 500;
-  font-size: 18px;
-  color: rgb(53, 53, 53, 1);
-  background: transparent;
-  border: 0px solid #f2f2f2;
-  padding: 15px;
-}
-.search_input::placeholder {
-  color: #000;
-}
-.search_input:focus {
-  outline: none;
-}*/
 
 .header-hero {
   background: rgb(247, 247, 247, 1);
@@ -149,6 +130,19 @@ html {
   font-size: 18px;
   padding: 0 25px 0 37px;
   margin: 40px 0 0 0;
+  &__title {
+    flex-basis: 100%;
+    padding: 0;
+    margin: 0 0 0 -7px;
+  }
+  h2 {
+    font-family: $font_txt;
+    font-size: 26px;
+    font-weight: 600;
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
   &__content {
     display: flex;
     justify-content: space-between;
@@ -184,6 +178,9 @@ html {
       left: -12px;
     }
   }
+  .checked {
+    background: #eadff7;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -214,6 +211,17 @@ html {
     color: #000;
     width: 48%;
   }
+  &__title {
+    display: block;
+    flex-basis: 100%;
+  }
+  h2 {
+    font-family: $font_txt;
+    font-size: 26px;
+    font-weight: 600;
+    display: block;
+    padding: 0;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -222,9 +230,8 @@ html {
   .main {
     display: flex;
     flex-direction: column;
-    width: 100%;
     a {
-      width: auto;
+      width: 100%;
     }
   }
 }
@@ -318,12 +325,15 @@ html {
   }
 }
 
-// A reviser ...
+// howto icons ...
 
 .fa-mobile-screen-button,
 .fa-list,
 .fa-store {
   margin: 0 20px 0 0;
+}
+.fa-store {
+  color: #9356dc;
 }
 
 .fa-utensils,

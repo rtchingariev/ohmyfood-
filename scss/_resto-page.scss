@@ -167,6 +167,7 @@
   &:hover {
     padding-right: 100px;
   }
+  // menu item animation
   &:hover .menu__check {
     opacity: 1;
     transform: translate(-50px);
@@ -181,6 +182,7 @@
   }
 }
 
+// menu item animation
 .menu__txt {
   display: flex;
   justify-content: space-between;
